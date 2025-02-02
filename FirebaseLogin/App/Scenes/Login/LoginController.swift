@@ -18,7 +18,6 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         setNavBar()
         setDelegatesAndDataSources()
     }
@@ -28,6 +27,17 @@ class LoginController: UIViewController {
     }
     
     private func setDelegatesAndDataSources() {
-        
+        loginView.delegate = self
+    }
+}
+
+extension LoginController: LoginViewDelegate {
+    func loginButtonTapped() {
+        print("Tela de LOGIN: Clicou no botão LOGAR")
+    }
+    
+    func signupButtonTapped() {
+        let signupVC = SignupController()
+        navigationController?.pushViewController(signupVC, animated: true)
     }
 }
