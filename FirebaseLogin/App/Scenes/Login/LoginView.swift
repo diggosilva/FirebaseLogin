@@ -7,41 +7,26 @@
 
 import UIKit
 
+protocol LoginViewDelegate: AnyObject {
+    func loginButtonTapped()
+    func signupButtonTapped()
+}
+
 class LoginView: UIView {
-    lazy var logoImage: UIImageView = {
-        let img = UIImageView()
-        img.translatesAutoresizingMaskIntoConstraints = false
-        img.contentMode = .scaleAspectFit
-        img.image = UIImage(named: "logo")
-        return img
-    }()
     
-    lazy var emailTextField: UITextField = {
-        let tf = UITextField()
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.autocapitalizationType = .none
-        tf.autocorrectionType = .no
-        tf.placeholder = "Email"
-        tf.borderStyle = .roundedRect
-        tf.clearButtonMode = .whileEditing
-        tf.keyboardType = .emailAddress
-        return tf
-    }()
+    // MARK: - UI Elements
     
-    lazy var passwordTextField: UITextField = {
-        let tf = UITextField()
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.autocapitalizationType = .none
-        tf.autocorrectionType = .no
-        tf.placeholder = "Senha"
-        tf.borderStyle = .roundedRect
-        tf.clearButtonMode = .whileEditing
-        tf.isSecureTextEntry = true
-        return tf
-    }()
-    
+    lazy var logoImage = buildLogoImageView()
+    lazy var emailTextField = buildTextfield(placeholder: "Email")
+    lazy var passwordTextField = buildTextfield(placeholder: "Senha", keyboardType: .default, isSecureTextEntry: true)
     lazy var loginButton = buildButton(title: "Logar", color: .systemBlue, selector: #selector(loginButtonTapped))
     lazy var signupButton = buildButtonWith2Texts(title1: "Não tem uma conta?  ", title2: "Cadastre-se!", selector: #selector(signupButtonTapped))
+    
+    // MARK: - Properties
+    
+    weak var delegate: LoginViewDelegate?
+    
+    // MARK: - Initializer
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -50,21 +35,27 @@ class LoginView: UIView {
     
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
-    @objc func loginButtonTapped() {
-        print("Clicou no botão LOGAR")
+    // MARK: - Button Actions
+    
+    @objc private func loginButtonTapped() {
+        delegate?.loginButtonTapped()
     }
     
-    @objc func signupButtonTapped() {
-        print("Clicou no botão CADASTRAR")
+    @objc private func signupButtonTapped() {
+        delegate?.signupButtonTapped()
     }
+    
+    // MARK: - Setup Methods
     
     private func setupView() {
         setHierarchy()
         setConstraints()
     }
     
+    // MARK: - Layout Methods
+    
     private func setHierarchy() {
-        backgroundColor = .systemBackground
+        backgroundColor = .secondarySystemBackground
         addSubviews([logoImage, emailTextField, passwordTextField, loginButton, signupButton])
     }
     
