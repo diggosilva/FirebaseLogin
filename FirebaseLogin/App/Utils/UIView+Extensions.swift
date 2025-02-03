@@ -12,12 +12,30 @@ extension UIView {
         views.forEach({ addSubview($0) })
     }
     
+    func buildLogoImageView() -> UIImageView {
+        let img = UIImageView()
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.contentMode = .scaleAspectFit
+        img.image = UIImage(named: "logo")
+        return img
+    }
+    
+    func buildTextfield(placeholder: String, keyboardType: UIKeyboardType = .emailAddress, isSecureTextEntry: Bool = false) -> UITextField {
+        let tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.autocapitalizationType = .none
+        tf.autocorrectionType = .no
+        tf.placeholder = placeholder
+        tf.borderStyle = .roundedRect
+        tf.clearButtonMode = .whileEditing
+        tf.keyboardType = keyboardType
+        tf.isSecureTextEntry = isSecureTextEntry
+        return tf
+    }
+    
     func buildButton(title: String, color: UIColor, selector: Selector) -> UIButton {
-        var configuration = UIButton.Configuration.borderedTinted()
+        var configuration = UIButton.Configuration.filled()
         configuration.title = title
-        configuration.cornerStyle = .dynamic
-        configuration.baseBackgroundColor = color
-        configuration.baseForegroundColor = color
         
         let btn = UIButton(configuration: configuration)
         btn.translatesAutoresizingMaskIntoConstraints = false

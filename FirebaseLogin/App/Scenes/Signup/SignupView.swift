@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  SignupView.swift
 //  FirebaseLogin
 //
 //  Created by Diggo Silva on 02/02/25.
@@ -7,24 +7,25 @@
 
 import UIKit
 
-protocol LoginViewDelegate: AnyObject {
-    func loginButtonTapped()
+protocol SignupViewDelegate: AnyObject {
     func signupButtonTapped()
+    func loginButtonTapped()
 }
 
-class LoginView: UIView {
+class SignupView: UIView {
     
     // MARK: - UI Elements
     
     lazy var logoImage = buildLogoImageView()
     lazy var emailTextField = buildTextfield(placeholder: "Email")
     lazy var passwordTextField = buildTextfield(placeholder: "Senha", keyboardType: .default, isSecureTextEntry: true)
-    lazy var loginButton = buildButton(title: "Logar", color: .systemBlue, selector: #selector(loginButtonTapped))
-    lazy var signupButton = buildButtonWith2Texts(title1: "Não tem uma conta?  ", title2: "Cadastre-se!", selector: #selector(signupButtonTapped))
+    lazy var confirmPasswordTextField = buildTextfield(placeholder: "Confirmar senha", keyboardType: .default, isSecureTextEntry: true)
+    lazy var signupButton = buildButton(title: "Cadastrar", color: .systemBlue, selector: #selector(signupButtonTapped))
+    lazy var loginButton = buildButtonWith2Texts(title1: "Já tem uma conta?  ", title2: "Logar!", selector: #selector(loginButtonTapped))
     
     // MARK: - Properties
     
-    weak var delegate: LoginViewDelegate?
+    weak var delegate: SignupViewDelegate?
     
     // MARK: - Initializer
     
@@ -37,12 +38,12 @@ class LoginView: UIView {
     
     // MARK: - Button Actions
     
-    @objc private func loginButtonTapped() {
-        delegate?.loginButtonTapped()
-    }
-    
     @objc private func signupButtonTapped() {
         delegate?.signupButtonTapped()
+    }
+    
+    @objc private func loginButtonTapped() {
+        delegate?.loginButtonTapped()
     }
     
     // MARK: - Setup Methods
@@ -56,7 +57,7 @@ class LoginView: UIView {
     
     private func setHierarchy() {
         backgroundColor = .secondarySystemBackground
-        addSubviews([logoImage, emailTextField, passwordTextField, loginButton, signupButton])
+        addSubviews([logoImage, emailTextField, passwordTextField, confirmPasswordTextField, signupButton, loginButton])
     }
     
     private func setConstraints() {
@@ -74,13 +75,17 @@ class LoginView: UIView {
             passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
-            loginButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
-            loginButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            confirmPasswordTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            confirmPasswordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            confirmPasswordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             
-            signupButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            signupButton.topAnchor.constraint(equalTo: confirmPasswordTextField.bottomAnchor, constant: 20),
             signupButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             signupButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            
+            loginButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            loginButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            loginButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
         ])
     }
 }
