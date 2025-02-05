@@ -60,21 +60,23 @@ class LoginView: UIView {
     }
     
     private func setConstraints() {
+        let padding: CGFloat = 20
+        
         NSLayoutConstraint.activate([
             logoImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             logoImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             logoImage.widthAnchor.constraint(equalToConstant: 200),
             logoImage.heightAnchor.constraint(equalTo: logoImage.widthAnchor),
             
-            emailTextField.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 20),
-            emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            emailTextField.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: padding),
+            emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
             
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: padding),
             passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: padding),
             loginButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             loginButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             
