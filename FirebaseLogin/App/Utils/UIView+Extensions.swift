@@ -36,6 +36,7 @@ extension UIView {
     func buildButton(title: String, color: UIColor, selector: Selector) -> UIButton {
         var configuration = UIButton.Configuration.filled()
         configuration.title = title
+        configuration.baseBackgroundColor = color
         
         let btn = UIButton(configuration: configuration)
         btn.translatesAutoresizingMaskIntoConstraints = false
