@@ -40,6 +40,7 @@ extension UIView {
         
         let btn = UIButton(configuration: configuration)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.heightAnchor.constraint(equalToConstant: 35).isActive = true
         btn.addTarget(self, action: selector, for: .touchUpInside)
         return btn
     }
@@ -52,5 +53,12 @@ extension UIView {
         button.addTarget(self, action: selector, for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }
+    
+    func buildSpinner() -> UIActivityIndicatorView {
+        let spinner = UIActivityIndicatorView()
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.color = .white
+        return spinner
     }
 }
