@@ -21,6 +21,7 @@ class LoginView: UIView {
     lazy var passwordTextField = buildTextfield(placeholder: "Senha", keyboardType: .default, isSecureTextEntry: true)
     lazy var loginButton = buildButton(title: "Logar", color: .systemBlue, selector: #selector(loginButtonTapped))
     lazy var signupButton = buildButtonWith2Texts(title1: "Não tem uma conta?  ", title2: "Cadastre-se!", selector: #selector(signupButtonTapped))
+    lazy var spinner = buildSpinner()
     
     // MARK: - Properties
     
@@ -56,7 +57,7 @@ class LoginView: UIView {
     
     private func setHierarchy() {
         backgroundColor = .secondarySystemBackground
-        addSubviews([logoImage, emailTextField, passwordTextField, loginButton, signupButton])
+        addSubviews([logoImage, emailTextField, passwordTextField, loginButton, signupButton, spinner])
     }
     
     private func setConstraints() {
@@ -83,6 +84,9 @@ class LoginView: UIView {
             signupButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             signupButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             signupButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            
+            spinner.centerXAnchor.constraint(equalTo: loginButton.centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: loginButton.centerYAnchor),
         ])
     }
 }
