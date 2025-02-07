@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class FeedController: UIViewController {
     
@@ -19,10 +20,27 @@ class FeedController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
+        setDelegatesAndDataSources()
     }
     
     private func setNavBar() {
-        title = "VOCÊ ESTÁ NO APP"
+        title = "VOCÊ ESTÁ LOGADO"
         navigationItem.hidesBackButton = true
+    }
+    
+    private func setDelegatesAndDataSources() {
+        feedView.delegate = self
+    }
+}
+
+extension FeedController: FeedViewDelegate {
+    func signoutButtonTapped() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            navigationController?.popToRootViewController(animated: true)
+        } catch let signOutError as NSError {
+            print("Erro ao tentar se desconectar: \(signOutError.localizedDescription)")
+        }
     }
 }
