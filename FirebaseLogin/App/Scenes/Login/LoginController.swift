@@ -10,8 +10,10 @@ import FirebaseAuth
 
 class LoginController: UIViewController {
     
+    // MARK: - Properties
     let loginView = LoginView()
     
+    // MARK: - Lifecycle
     override func loadView() {
         super.loadView()
         view = loginView
@@ -20,25 +22,32 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
-        setDelegatesAndDataSources()
+        setDelegates()
         navigateToFeedIfUserIsLoggedIn()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         setupLoginButtonWhenTapped(setTitle: "Logar", startAnimating: false)
+        clearTextFields()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
+    // MARK: - Setup Methods
     private func setNavBar() {
         title = "TELA DE LOGIN"
     }
     
-    private func setDelegatesAndDataSources() {
+    private func setDelegates() {
         loginView.delegate = self
+    }
+    
+    private func clearTextFields() {
+        loginView.emailTextField.text = ""
+        loginView.passwordTextField.text = ""
     }
     
     private func navigateToFeedIfUserIsLoggedIn() {
@@ -53,6 +62,7 @@ class LoginController: UIViewController {
         }
     }
     
+    // MARK: - Actions
     func showAlertError(message: String) {
         let alert = UIAlertController(title: "Erro", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
@@ -61,6 +71,7 @@ class LoginController: UIViewController {
         present(alert, animated: true)
     }
     
+    // MARK: - UI Configuration
     func setupLoginButtonWhenTapped(setTitle: String = "", startAnimating: Bool = true) {
         if startAnimating {
             loginView.loginButton.setTitle(setTitle, for: .normal)
@@ -72,6 +83,7 @@ class LoginController: UIViewController {
     }
 }
 
+// MARK: - LoginViewDelegate
 extension LoginController: LoginViewDelegate {
     func loginButtonTapped() {
         setupLoginButtonWhenTapped()
