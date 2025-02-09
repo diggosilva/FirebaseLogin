@@ -7,19 +7,30 @@
 
 import UIKit
 
+protocol FeedViewDelegate: AnyObject {
+    func signoutButtonTapped()
+}
+
 class FeedView: UIView {
     
     lazy var welcomeLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.numberOfLines = 0
-        lbl.text = "Seja bem-vindo! Você está logado.\nClique no botão abaixo para fazer logout."
         lbl.font = .systemFont(ofSize: 16, weight: .semibold)
         lbl.textAlignment = .center
         return lbl
     }()
     
     lazy var signoutButton = buildButton(title: "Fazer Logout", color: .systemRed, selector: #selector(signoutButtonTapped))
+    
+    var email: String = "" {
+        didSet {
+            welcomeLabel.text = "Seja bem-vindo, \(email)"
+        }
+    }
+    
+    weak var delegate: FeedViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -29,7 +40,7 @@ class FeedView: UIView {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     @objc func signoutButtonTapped() {
-        print("Clicou em Fazer Logout")
+        delegate?.signoutButtonTapped()
     }
     
     private func setupView() {
