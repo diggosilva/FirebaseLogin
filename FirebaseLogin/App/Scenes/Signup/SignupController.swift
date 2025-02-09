@@ -10,8 +10,10 @@ import FirebaseAuth
 
 class SignupController: UIViewController {
     
+    // MARK: - Properties
     let signupView = SignupView()
     
+    // MARK: - Lifecycle
     override func loadView() {
         super.loadView()
         view = signupView
@@ -20,7 +22,7 @@ class SignupController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
-        setDelegatesAndDataSources()
+        setDelegates()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -32,15 +34,17 @@ class SignupController: UIViewController {
         view.endEditing(true)
     }
     
+    // MARK: - Configuration
     private func setNavBar() {
         title = "TELA DE CADASTRO"
         navigationItem.hidesBackButton = true
     }
     
-    private func setDelegatesAndDataSources() {
+    private func setDelegates() {
         signupView.delegate = self
     }
     
+    // MARK: - Alerts
     func showAlertError(message: String) {
         let alert = UIAlertController(title: "Erro", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
@@ -63,6 +67,7 @@ class SignupController: UIViewController {
         present(alert, animated: true)
     }
     
+    // MARK: - UI Configuration
     func setupSignupButtonWhenTapped(setTitle: String = "", startAnimating: Bool = true) {
         if startAnimating {
             signupView.signupButton.setTitle(setTitle, for: .normal)
@@ -74,6 +79,7 @@ class SignupController: UIViewController {
     }
 }
 
+// MARK: - SignupViewDelegate
 extension SignupController: SignupViewDelegate {
     func signupButtonTapped() {
         setupSignupButtonWhenTapped()

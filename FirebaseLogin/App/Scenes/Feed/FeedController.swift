@@ -10,8 +10,10 @@ import FirebaseAuth
 
 class FeedController: UIViewController {
     
+    // MARK: - Properties
     let feedView = FeedView()
     
+    // MARK: - Lifecycle
     override func loadView() {
         super.loadView()
         view = feedView
@@ -20,19 +22,21 @@ class FeedController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavBar()
-        setDelegatesAndDataSources()
+        setDelegates()
     }
     
+    // MARK: - Configuration
     private func setNavBar() {
         title = "VOCÊ ESTÁ LOGADO"
         navigationItem.hidesBackButton = true
     }
     
-    private func setDelegatesAndDataSources() {
+    private func setDelegates() {
         feedView.delegate = self
     }
 }
 
+// MARK: - FeedViewDelegate
 extension FeedController: FeedViewDelegate {
     func signoutButtonTapped() {
         let firebaseAuth = Auth.auth()
