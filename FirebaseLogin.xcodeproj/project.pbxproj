@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9203CB4E2D5AA42B005A8526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9203CB462D5AA42B005A8526 /* Assets.xcassets */; };
+		9203CB4F2D5AA42B005A8526 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9203CB482D5AA42B005A8526 /* LaunchScreen.storyboard */; };
+		9203CB502D5AA42B005A8526 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9203CB4B2D5AA42B005A8526 /* GoogleService-Info.plist */; };
+		9203CB522D5AA42B005A8526 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB322D5AA42B005A8526 /* UserModel.swift */; };
+		9203CB532D5AA42B005A8526 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB342D5AA42B005A8526 /* AuthService.swift */; };
+		9203CB542D5AA42B005A8526 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB362D5AA42B005A8526 /* FeedController.swift */; };
+		9203CB552D5AA42B005A8526 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB372D5AA42B005A8526 /* FeedView.swift */; };
+		9203CB562D5AA42B005A8526 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB392D5AA42B005A8526 /* LoginController.swift */; };
+		9203CB572D5AA42B005A8526 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB3A2D5AA42B005A8526 /* LoginView.swift */; };
+		9203CB582D5AA42B005A8526 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB3B2D5AA42B005A8526 /* LoginViewModel.swift */; };
+		9203CB592D5AA42B005A8526 /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB3D2D5AA42B005A8526 /* SignupController.swift */; };
+		9203CB5A2D5AA42B005A8526 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB3E2D5AA42B005A8526 /* SignupView.swift */; };
+		9203CB5B2D5AA42B005A8526 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB3F2D5AA42B005A8526 /* SignupViewModel.swift */; };
+		9203CB5C2D5AA42B005A8526 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB422D5AA42B005A8526 /* UIView+Extensions.swift */; };
+		9203CB5D2D5AA42B005A8526 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB452D5AA42B005A8526 /* AppDelegate.swift */; };
+		9203CB5E2D5AA42B005A8526 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB492D5AA42B005A8526 /* SceneDelegate.swift */; };
 		A4B068D0FF1DB1BFD1CAAD6C /* Pods_FirebaseLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1F261DE58A62F044A94130 /* Pods_FirebaseLogin.framework */; };
 /* End PBXBuildFile section */
 
@@ -14,29 +30,25 @@
 		5D1F261DE58A62F044A94130 /* Pods_FirebaseLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		725302BD6BF7FA83DAF965A5 /* Pods-FirebaseLogin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseLogin.debug.xcconfig"; path = "Target Support Files/Pods-FirebaseLogin/Pods-FirebaseLogin.debug.xcconfig"; sourceTree = "<group>"; };
 		85F836B5600B1A02342FBA37 /* Pods-FirebaseLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseLogin.release.xcconfig"; path = "Target Support Files/Pods-FirebaseLogin/Pods-FirebaseLogin.release.xcconfig"; sourceTree = "<group>"; };
+		9203CB322D5AA42B005A8526 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		9203CB342D5AA42B005A8526 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		9203CB362D5AA42B005A8526 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		9203CB372D5AA42B005A8526 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		9203CB392D5AA42B005A8526 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		9203CB3A2D5AA42B005A8526 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9203CB3B2D5AA42B005A8526 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9203CB3D2D5AA42B005A8526 /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
+		9203CB3E2D5AA42B005A8526 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		9203CB3F2D5AA42B005A8526 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		9203CB422D5AA42B005A8526 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		9203CB452D5AA42B005A8526 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9203CB462D5AA42B005A8526 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9203CB472D5AA42B005A8526 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9203CB492D5AA42B005A8526 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9203CB4B2D5AA42B005A8526 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9203CB4C2D5AA42B005A8526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		926F0C162D4FA133007C8519 /* FirebaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		926F0C282D4FA134007C8519 /* Exceptions for "FirebaseLogin" folder in "FirebaseLogin" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 926F0C152D4FA133007C8519 /* FirebaseLogin */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		926F0C182D4FA133007C8519 /* FirebaseLogin */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				926F0C282D4FA134007C8519 /* Exceptions for "FirebaseLogin" folder in "FirebaseLogin" target */,
-			);
-			path = FirebaseLogin;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		926F0C132D4FA133007C8519 /* Frameworks */ = {
@@ -59,10 +71,106 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9203CB332D5AA42B005A8526 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB322D5AA42B005A8526 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9203CB352D5AA42B005A8526 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB342D5AA42B005A8526 /* AuthService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9203CB382D5AA42B005A8526 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB362D5AA42B005A8526 /* FeedController.swift */,
+				9203CB372D5AA42B005A8526 /* FeedView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		9203CB3C2D5AA42B005A8526 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB392D5AA42B005A8526 /* LoginController.swift */,
+				9203CB3A2D5AA42B005A8526 /* LoginView.swift */,
+				9203CB3B2D5AA42B005A8526 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		9203CB402D5AA42B005A8526 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB3D2D5AA42B005A8526 /* SignupController.swift */,
+				9203CB3E2D5AA42B005A8526 /* SignupView.swift */,
+				9203CB3F2D5AA42B005A8526 /* SignupViewModel.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		9203CB412D5AA42B005A8526 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB382D5AA42B005A8526 /* Feed */,
+				9203CB3C2D5AA42B005A8526 /* Login */,
+				9203CB402D5AA42B005A8526 /* Signup */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9203CB432D5AA42B005A8526 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB422D5AA42B005A8526 /* UIView+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9203CB442D5AA42B005A8526 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB332D5AA42B005A8526 /* Model */,
+				9203CB352D5AA42B005A8526 /* Network */,
+				9203CB412D5AA42B005A8526 /* Scenes */,
+				9203CB432D5AA42B005A8526 /* Utils */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9203CB4A2D5AA42B005A8526 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB452D5AA42B005A8526 /* AppDelegate.swift */,
+				9203CB462D5AA42B005A8526 /* Assets.xcassets */,
+				9203CB482D5AA42B005A8526 /* LaunchScreen.storyboard */,
+				9203CB492D5AA42B005A8526 /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9203CB4D2D5AA42B005A8526 /* FirebaseLogin */ = {
+			isa = PBXGroup;
+			children = (
+				9203CB442D5AA42B005A8526 /* App */,
+				9203CB4A2D5AA42B005A8526 /* Resources */,
+				9203CB4B2D5AA42B005A8526 /* GoogleService-Info.plist */,
+				9203CB4C2D5AA42B005A8526 /* Info.plist */,
+			);
+			path = FirebaseLogin;
+			sourceTree = "<group>";
+		};
 		926F0C0D2D4FA133007C8519 = {
 			isa = PBXGroup;
 			children = (
-				926F0C182D4FA133007C8519 /* FirebaseLogin */,
+				9203CB4D2D5AA42B005A8526 /* FirebaseLogin */,
 				926F0C172D4FA133007C8519 /* Products */,
 				3E8FB4F77668AD5E1B4C5129 /* Pods */,
 				AAED5773F68A1DF489896D41 /* Frameworks */,
@@ -101,9 +209,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				926F0C182D4FA133007C8519 /* FirebaseLogin */,
 			);
 			name = FirebaseLogin;
 			productName = FirebaseLogin;
@@ -149,6 +254,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9203CB4E2D5AA42B005A8526 /* Assets.xcassets in Resources */,
+				9203CB4F2D5AA42B005A8526 /* LaunchScreen.storyboard in Resources */,
+				9203CB502D5AA42B005A8526 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,10 +309,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9203CB522D5AA42B005A8526 /* UserModel.swift in Sources */,
+				9203CB532D5AA42B005A8526 /* AuthService.swift in Sources */,
+				9203CB542D5AA42B005A8526 /* FeedController.swift in Sources */,
+				9203CB552D5AA42B005A8526 /* FeedView.swift in Sources */,
+				9203CB562D5AA42B005A8526 /* LoginController.swift in Sources */,
+				9203CB572D5AA42B005A8526 /* LoginView.swift in Sources */,
+				9203CB582D5AA42B005A8526 /* LoginViewModel.swift in Sources */,
+				9203CB592D5AA42B005A8526 /* SignupController.swift in Sources */,
+				9203CB5A2D5AA42B005A8526 /* SignupView.swift in Sources */,
+				9203CB5B2D5AA42B005A8526 /* SignupViewModel.swift in Sources */,
+				9203CB5C2D5AA42B005A8526 /* UIView+Extensions.swift in Sources */,
+				9203CB5D2D5AA42B005A8526 /* AppDelegate.swift in Sources */,
+				9203CB5E2D5AA42B005A8526 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9203CB482D5AA42B005A8526 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9203CB472D5AA42B005A8526 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		926F0C2A2D4FA134007C8519 /* Debug */ = {
