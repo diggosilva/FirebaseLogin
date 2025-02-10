@@ -1,14 +1,43 @@
-class LoginViewModel {
+//
+//  LoginViewModel.swift
+//  FirebaseLogin
+//
+//  Created by Diggo Silva on 09/02/25.
+//
+
+import UIKit
+
+enum LoginError: String, Error {
+    case invalidEmail = "O e-mail informado é inválido. Ex: exemplo@dominio.com"
+    case invalidPassword = "A senha deve ter pelo menos 6 caracteres"
+    case loginFailed = "Erro ao realizar o login. Por favor verifique suas credenciais e tente novamente."
+    
+    var localizedDescription: String {
+        return self.rawValue
+    }
+}
+
+protocol LoginViewModelProtocol {
+    func checkIfUserIsLoggedIn() -> UserModel?
+    func validateEmail(_ email: String) -> Result<String, LoginError>
+    func validatePassword(_ password: String) -> Result<String, LoginError>
+    func authenticateUser(email: String, password: String, completion: @escaping(Result<String, LoginError>) -> Void)
+}
+
+class LoginViewModel: LoginViewModelProtocol {
     
     // MARK: - Properties
-    let authService: AuthServiceProtocol
+    private let authService: AuthServiceProtocol
     
     init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
     }
     
-    // MARK: - Validation Methods
+    func checkIfUserIsLoggedIn() -> UserModel? {
+        return authService.checkIfUserIsLoggedIn()
+    }
     
+    // MARK: - Validation Methods
     func validateEmail(_ email: String) -> Result<String, LoginError> {
         guard !email.trimmingCharacters(in: .whitespaces).isEmpty else {
             return .failure(.invalidEmail)

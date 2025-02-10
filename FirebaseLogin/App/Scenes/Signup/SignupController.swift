@@ -60,7 +60,7 @@ class SignupController: UIViewController {
                     try Auth.auth().signOut()
                     self.navigationController?.popToRootViewController(animated: true)
                 } catch {
-                    self.showAlertError(message: "Erro ao fazer logout: \(error.localizedDescription)")
+                    self.showAlertError(message: SignupError.signupFailed.localizedDescription)
             }
             self.navigationController?.popToRootViewController(animated: true)
         }))
@@ -84,26 +84,36 @@ extension SignupController: SignupViewDelegate {
     func signupButtonTapped() {
         setupSignupButtonWhenTapped()
         guard let email = signupView.emailTextField.text, !email.trimmingCharacters(in: .whitespaces).isEmpty else {
-            showAlertError(message: "Digite um e-mail válido")
+            showAlertError(message: SignupError.invalidEmail.localizedDescription)
             signupView.emailTextField.text = ""
             return
         }
         
+        if !isValidEmail(email) {
+            showAlertError(message: SignupError.invalidEmail.localizedDescription)
+            signupView.emailTextField.text = ""
+        }
+        
         guard let password = signupView.passwordTextField.text, !password.trimmingCharacters(in: .whitespaces).isEmpty else {
-            showAlertError(message: "Digite uma senha")
+            showAlertError(message: SignupError.invalidPassword.localizedDescription)
+            return
+        }
+        
+        if password.count < 6 {
+            showAlertError(message: SignupError.invalidPassword.localizedDescription)
             return
         }
         
         guard let confirmPassword = signupView.confirmPasswordTextField.text, !confirmPassword.trimmingCharacters(in: .whitespaces).isEmpty, confirmPassword == password else {
-            showAlertError(message: "As senhas não coincidem. Digite novamente")
+            showAlertError(message: SignupError.passwordMismatch.localizedDescription)
             signupView.confirmPasswordTextField.text = ""
             return
         }
         
         let firebaseAuth = Auth.auth()
         firebaseAuth.createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                self.showAlertError(message: "Falha ao cadastrar usuário: \(error.localizedDescription)")
+            if error != nil {
+                self.showAlertError(message: SignupError.signupFailed.localizedDescription)
             } else {
                 self.showAlertSuccess(message: "Faça o login para continuar")
             }
@@ -112,5 +122,23 @@ extension SignupController: SignupViewDelegate {
     
     func loginButtonTapped() {
         navigationController?.popToRootViewController(animated: true)
+    }
+    // Função para validar formato de email
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailTest.evaluate(with: email)
+    }
+}
+
+enum SignupError: String, Error {
+    case invalidEmail = "O e-mail informado é inválido. Ex: exemplo@dominio.com"
+    case invalidPassword = "A senha deve ter pelo menos 6 caracteres"
+    case passwordMismatch = "As senhas não coincidem. Por favor, verifique."
+    case signupFailed = "Falha ao tentar cadastrar o usuário. Tente novamente."
+    case logoutFailed = "Erro ao fazer logout. Tente novamente."
+    
+    var localizedDescription: String {
+        return rawValue
     }
 }
