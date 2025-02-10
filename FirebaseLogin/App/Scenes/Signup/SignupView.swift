@@ -86,7 +86,7 @@ class SignupView: UIView {
             signupButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             signupButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             
-            loginButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            loginButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -padding),
             loginButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
             loginButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             

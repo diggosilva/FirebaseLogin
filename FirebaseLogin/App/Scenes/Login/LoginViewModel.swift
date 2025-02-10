@@ -58,7 +58,7 @@ class LoginViewModel: LoginViewModelProtocol {
     
     // MARK: - Authentication Method
     func authenticateUser(email: String, password: String, completion: @escaping(Result<String, LoginError>) -> Void) {
-        authService.signIn(email: email, password: password) { result in
+        authService.loginUser(email: email, password: password) { result in
             switch result {
             case .success(let email):
                 completion(.success(email))

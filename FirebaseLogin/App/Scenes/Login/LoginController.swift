@@ -6,7 +6,6 @@
 //
 
 import UIKit
-//import FirebaseAuth
 
 class LoginController: UIViewController {
     
@@ -61,7 +60,7 @@ class LoginController: UIViewController {
     }
     
     // MARK: - Actions
-    func showAlertError(message: String) {
+    private func showAlertError(message: String) {
         let alert = UIAlertController(title: "Erro", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             self.setupLoginButtonWhenTapped(setTitle: "Logar", startAnimating: false)
@@ -70,7 +69,7 @@ class LoginController: UIViewController {
     }
     
     // MARK: - UI Configuration
-    func setupLoginButtonWhenTapped(setTitle: String = "", startAnimating: Bool = true) {
+    private func setupLoginButtonWhenTapped(setTitle: String = "", startAnimating: Bool = true) {
         if startAnimating {
             loginView.loginButton.setTitle(setTitle, for: .normal)
             loginView.spinner.startAnimating()
