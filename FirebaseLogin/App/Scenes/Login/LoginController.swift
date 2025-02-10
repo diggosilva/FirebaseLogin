@@ -6,12 +6,13 @@
 //
 
 import UIKit
-import FirebaseAuth
+//import FirebaseAuth
 
 class LoginController: UIViewController {
     
     // MARK: - Properties
     let loginView = LoginView()
+    let viewModel = LoginViewModel()
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -51,14 +52,11 @@ class LoginController: UIViewController {
     }
     
     private func navigateToFeedIfUserIsLoggedIn() {
-        let firebaseAuth = Auth.auth()
-        if let user = firebaseAuth.currentUser {
-            if let email = user.email {
-                print(email)
-                let feedVC = FeedController()
-                feedVC.feedView.email = email
-                navigationController?.pushViewController(feedVC, animated: true)
-            }
+        if let userModel = viewModel.checkIfUserIsLoggedIn() {
+            let email = userModel.email
+            let feedVC = FeedController()
+            feedVC.feedView.email = email
+            navigationController?.pushViewController(feedVC, animated: true)
         }
     }
     
@@ -87,30 +85,32 @@ class LoginController: UIViewController {
 extension LoginController: LoginViewDelegate {
     func loginButtonTapped() {
         setupLoginButtonWhenTapped()
-        guard let email = loginView.emailTextField.text, !email.trimmingCharacters(in: .whitespaces).isEmpty else {
-            showAlertError(message: "Digite um e-mail válido")
-            loginView.emailTextField.text = ""
-            return
-        }
         
-        guard let password = loginView.passwordTextField.text, !password.trimmingCharacters(in: .whitespaces).isEmpty else {
-            showAlertError(message: "Digita sua senha")
-            return
-        }
-        
-        let firebaseAuth = Auth.auth()
-        firebaseAuth.signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let self = self else { return }
+        // Validar email
+        guard let email = loginView.emailTextField.text else { return }
+        switch viewModel.validateEmail(email) {
+        case .failure(let error):
+            return showAlertError(message: error.localizedDescription)
+        case .success(let validEmail):
             
-            if let error = error {
-                self.showAlertError(message: "Erro ao realizar o login: \(error.localizedDescription)")
-                return
-            } else {
-                let feedVC = FeedController()
-                let firebaseAuth = Auth.auth()
-                if let email = firebaseAuth.currentUser?.email {
-                    feedVC.feedView.email = email
-                    self.navigationController?.pushViewController(feedVC, animated: true)
+            // Validar senha
+            guard let password = loginView.passwordTextField.text else { return }
+            switch viewModel.validatePassword(password) {
+            case .failure(let error):
+                return showAlertError(message: error.localizedDescription)
+            case .success(let validPassword):
+                
+                // Autenticar usuário
+                viewModel.authenticateUser(email: validEmail, password: validPassword) { [weak self] result in
+                    guard let self = self else { return }
+                    switch result {
+                    case .success(let email):
+                        let feedVC = FeedController()
+                        feedVC.feedView.email = email
+                        navigationController?.pushViewController(feedVC, animated: true)
+                    case .failure(let error):
+                        return showAlertError(message: error.localizedDescription)
+                    }
                 }
             }
         }
