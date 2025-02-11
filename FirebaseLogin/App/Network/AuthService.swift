@@ -5,7 +5,6 @@
 //  Created by Diggo Silva on 09/02/25.
 //
 
-import UIKit
 import FirebaseAuth
 
 protocol AuthServiceProtocol {
