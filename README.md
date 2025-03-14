@@ -26,6 +26,7 @@ A Swift iOS FirebaseLogin app. A very simple application built solely for study 
 - Custom elements
 - Dark Mode
 - Anthentication with Firebase
+- Unit Tests
 
 ## Requirements
 
