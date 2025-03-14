@@ -23,6 +23,7 @@
 		9203CB5C2D5AA42B005A8526 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB422D5AA42B005A8526 /* UIView+Extensions.swift */; };
 		9203CB5D2D5AA42B005A8526 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB452D5AA42B005A8526 /* AppDelegate.swift */; };
 		9203CB5E2D5AA42B005A8526 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203CB492D5AA42B005A8526 /* SceneDelegate.swift */; };
+		9230C0102D846BE20044F1AF /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9230C00F2D846BE20044F1AF /* LoginViewModelTests.swift */; };
 		92368B4F2D8324EA00F075F9 /* SignupViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92368B4D2D8324EA00F075F9 /* SignupViewModelTests.swift */; };
 		A4B068D0FF1DB1BFD1CAAD6C /* Pods_FirebaseLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D1F261DE58A62F044A94130 /* Pods_FirebaseLogin.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		9203CB492D5AA42B005A8526 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9203CB4B2D5AA42B005A8526 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9203CB4C2D5AA42B005A8526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9230C00F2D846BE20044F1AF /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		92368B442D8324E400F075F9 /* FirebaseLoginTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FirebaseLoginTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92368B4D2D8324EA00F075F9 /* SignupViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModelTests.swift; sourceTree = "<group>"; };
 		926F0C162D4FA133007C8519 /* FirebaseLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				92368B4D2D8324EA00F075F9 /* SignupViewModelTests.swift */,
+				9230C00F2D846BE20044F1AF /* LoginViewModelTests.swift */,
 			);
 			path = FirebaseLoginTests;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9230C0102D846BE20044F1AF /* LoginViewModelTests.swift in Sources */,
 				92368B4F2D8324EA00F075F9 /* SignupViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,9 +12,7 @@ class MockSignup: AuthServiceProtocol {
     var isSuccess: Bool = true
     var logoutCalled: Bool = false
     
-    func checkIfUserIsLoggedIn() -> UserModel? {
-        return nil
-    }
+    func checkIfUserIsLoggedIn() -> UserModel? { return nil }
     
     func loginUser(email: String, password: String, completion: @escaping (Result<String, LoginError>) -> Void) {}
     
@@ -163,7 +161,6 @@ final class SignupViewModelTests: XCTestCase {
         XCTAssertTrue(mockAuthService.logoutCalled, "O método logoutUser deveria ter sido chamado.")
     }
 
-    
     //MARK: TESTS FAILURE
     func testWhenRegisterIsFailure() {
         let mockAuthService = MockSignup()
